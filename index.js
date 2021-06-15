@@ -18,6 +18,7 @@ mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 app.use(express.static(path.join(__dirname, 'public')));

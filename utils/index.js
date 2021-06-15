@@ -16,4 +16,13 @@ const isAuthorized = (token) => {
   });
 };
 
-module.exports = { getJwtToken, isAuthorized };
+const checkBody = (req, res, next) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).send({ message: 'Email или пароль не могут быть пустыми' });
+  }
+
+  next();
+};
+
+module.exports = { getJwtToken, isAuthorized, checkBody };
