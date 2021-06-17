@@ -23,6 +23,9 @@ mongoose.connect(MONGO_URI, {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/test', (req, res) => {
+  res.send('ok');
+});
 app.use('/', usersRouter);
 app.use('/', adminRouter);
 
